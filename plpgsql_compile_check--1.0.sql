@@ -20,8 +20,8 @@ begin
  		if msg is null then
  			RAISE NOTICE 'Compiled % at %', ident, now();
 		else
- 			RAISE WARNING 'Compile error(s) at % in %: %', now(), ident, msg;
-			RAISE SQLSTATE 'P0000';
+ 			RAISE WARNING E'Compile error(s) at % in %:\n%', now(), ident, msg;
+			RAISE EXCEPTION SQLSTATE 'P0000';
 		end if;
 	end if;
 END;
