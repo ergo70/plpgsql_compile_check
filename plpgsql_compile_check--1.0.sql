@@ -1,7 +1,7 @@
 -- complain if script is sourced in psql, rather than via CREATE EXTENSION
 \echo Use "CREATE EXTENSION plpgsql_compile_check" to load this file. \quit
 
-CREATE OR REPLACE FUNCTION compile_check_func_or_prod()
+CREATE OR REPLACE FUNCTION pgc_tf_compile_check_func_or_prod()
   RETURNS event_trigger
  LANGUAGE plpgsql
   AS $$
@@ -27,5 +27,5 @@ begin
 END;
 $$;
 
-CREATE EVENT TRIGGER evtrg_compile_check_func_or_prod ON ddl_command_end WHEN TAG IN ('CREATE FUNCTION', 'CREATE PROCEDURE')
-   EXECUTE FUNCTION compile_check_func_or_prod();
+CREATE EVENT TRIGGER pgc_evtrg_compile_check_func_or_prod ON ddl_command_end WHEN TAG IN ('CREATE FUNCTION', 'CREATE PROCEDURE')
+   EXECUTE FUNCTION pgc_tf_compile_check_func_or_prod();
