@@ -1,4 +1,4 @@
 # plpgsql_compile_check extension
 comment = 'Lint check plpgsql functions and procedures at compile time. REQUIRES extension plpgsql_check AND shared_preload_libraries = 'plpgsql,...,plpgsql_check'.'
 default_version = '1.0'
-relocatable = false
+relocatable = true
