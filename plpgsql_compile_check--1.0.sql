@@ -12,7 +12,7 @@ CREATE OR REPLACE FUNCTION pgc_tf_compile_check_func_or_prod()
 begin
 	ident := null;
 	msg := null;	
-  	for r in select d.object_identity from pg_event_trigger_ddl_commands() d inner join pg_catalog.pg_proc p on (p."oid" = d.objid) inner join pg_catalog.pg_language l on (p.prolang = l."oid") WHERE p.proname != 'compile_check_func_or_prod' and p.prokind in ('f', 'p') and l.lanname = 'plpgsql' limit 1 loop
+  	for r in select d.object_identity from pg_event_trigger_ddl_commands() d inner join pg_catalog.pg_proc p on (p."oid" = d.objid) inner join pg_catalog.pg_language l on (p.prolang = l."oid") WHERE p.proname != 'pgc_tf_compile_check_func_or_prod' and p.prokind in ('f', 'p') and l.lanname = 'plpgsql' limit 1 loop
 		ident := r.object_identity;
 	  	msg := plpgsql_check_function(ident, format:='xml');
   	end loop;
