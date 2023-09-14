@@ -1,24 +1,26 @@
 # plpgsql_compile_check
 This extension provides automatic static code analysis of PL/pgSQL functions and procedures using plpgsql_check and an event trigger.
 
-## Usage
+## Installation
 
 shared_preload_libraries='plpgsql,plpgsql_check'
 
 create extension plpgsql_check;
 create etension plpgsql_compile_check;
 
-CREATE OR REPLACE FUNCTION increment(i integer) RETURNS integer AS $$
+## Usage
+
+```CREATE OR REPLACE FUNCTION increment(i integer) RETURNS integer AS $$
         BEGIN
                 RETURN i + 1;
         END;
 $$ LANGUAGE plpgsql;
 
-Compiled public.increment(integer) at 2023-09-13 14:08:50.213244+02
+Compiled public.increment(integer) at 2023-09-13 14:08:50.213244+02```
 
 BUT:
 
-CREATE OR REPLACE FUNCTION increment(i integer) RETURNS integer AS $$
+```CREATE OR REPLACE FUNCTION increment(i integer) RETURNS integer AS $$
         BEGIN
                 -- RETURN i + 1;
         END;
@@ -36,7 +38,7 @@ Compile error(s) at 2023-09-13 14:06:52.39903+02 in public.increment(integer):
     <Sqlstate>00000</Sqlstate>
     <Message>unused parameter "i"</Message>
   </Issue>
-</Function>
+</Function>```
 
 Functionality can be switched off/on by:
 
