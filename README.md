@@ -6,8 +6,8 @@ This extension provides automatic static code analysis of PL/pgSQL functions and
 shared_preload_libraries='plpgsql,plpgsql_check'
 
 ```
-create extension plpgsql_check;
-create etension plpgsql_compile_check;
+CREATE EXTENSION plpgsql_check;
+CREATE EXTENSION plpgsql_compile_check;
 ```
 
 ## Usage
