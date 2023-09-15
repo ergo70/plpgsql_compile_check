@@ -1,5 +1,5 @@
 # plpgsql_compile_check
-This extension provides automatic static code analysis of PL/pgSQL functions and procedures using [plpgsql_check](https://github.com/okbob/plpgsql_check) and an event trigger.
+This extension provides automatic static code analysis of PL/pgSQL functions and procedures using [plpgsql_check](https://github.com/okbob/plpgsql_check) and an [event trigger](https://www.postgresql.org/docs/current/event-triggers.html).
 
 ## Installation
 
